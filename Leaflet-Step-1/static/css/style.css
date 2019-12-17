@@ -19,7 +19,7 @@ html {
 }
 
 
-.legend .circle {
+.legend i {
   display: inline-flex;
   width: 30px;
   height: 20px;

@@ -23,24 +23,24 @@ function markerSize(mag){
 }
 
 // create a function that gets colors for circle markers
-function getColors(mag) {
-  if (mag < 1){
-    return fillColor = "#B7DF5F"
+function getColors(d) {
+  if (d < 1){
+    return "#B7DF5F"
   }
-  else if ( mag < 2){
-    return fillColor = "#DCED11"
+  else if ( d < 2){
+    return "#DCED11"
   }
-  else if (mag < 3){
-    return fillColor = "#EDD911"
+  else if (d < 3){
+    return "#EDD911"
   }
-  else if (mag < 4){
-    return fillColor = "#EDB411"
+  else if (d < 4){
+    return "#EDB411"
   }
-  else if (mag < 5 ){
-    return fillColor = "#ED7211"
+  else if (d < 5 ){
+    return "#ED7211"
   }
   else {
-    return fillColor = "#ED4311"
+    return "#ED4311"
   }
 }
 
@@ -77,26 +77,22 @@ d3.json(queryUrl, function(data) {
     }).bindPopup("Date: " + new Date(result.properties.time) + "<br>Place: " + result.properties.place + "<br>Magnitude: " + result.properties.mag).addTo(myMap)
   })
 
-  // create legennds and add to the map
+  //create legennds and add to the map
   var legend = L.control({position: "bottomright" });
   legend.onAdd = function(){
-    var div = L.DomUtil.create("div", "info legend");
-    var categories = ["0-1","1-2","2-3","3-4","4-5","5+"]
-    var colors = ["#B7DF5F","#DCED11","#EDD911","#EDB411","#ED7211", "#ED4311"]
-    var labels =[]
-    
-    // loop through categories and put them in the labels array
-    for (var i=0; i < categories.length; i++ ){
-      div.innnerHTML+= labels.push(
-        '<i class="circle" style="background:' + colors[i] + '"></i> ' +
-            (categories[i] ? categories[i] : '+')
-      )
+    // create div for the legend
+    var div = L.DomUtil.create('div', 'info legend'),
+        grades = [0, 1, 2, 3, 4, 5]
+        labels = [];
+
+    // loop through our density intervals and generate a label with a colored square for each interval
+    for (var i = 0; i < grades.length; i++) {
+        div.innerHTML +=
+            '<i style="background:' + getColors(grades[i]) + '"></i> ' +
+            grades[i] + (grades[i +1 ] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
     }
-    div.innerHTML = labels.join("<br>") ;
-  
     return div;
   };
   legend.addTo(myMap);
-
 });
 
