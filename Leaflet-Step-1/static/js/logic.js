@@ -15,7 +15,7 @@ accessToken: API_KEY
 
 // get the url for the earthquake data
 var queryUrl = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2019-01-01&endtime=" +
-"2019-01-02&maxlongitude=-69.52148437&minlongitude=-123.83789062&maxlatitude=48.74894534&minlatitude=25.16517337";
+"2019-01-02&maxlongitude=20.52148437&minlongitude=-150.83789062&maxlatitude=80.74894534&minlatitude=-45.16517337";
 
 // create a function that changes marker size depending on the magnitute values
 function markerSize(mag){
@@ -42,7 +42,7 @@ function getColors(d) {
   else {
     return "#ED4311"
   }
-}
+};
 
 // create a function that creates markers
 function createCircleMarker(feature, latlng ){
@@ -57,7 +57,7 @@ function createCircleMarker(feature, latlng ){
     fillOpacity: 0.8
   }
   return L.circleMarker( latlng, markerOptions );
-}
+};
   
 // Use json request to fetch the data from a URL
 d3.json(queryUrl, function(data) {
@@ -67,15 +67,15 @@ d3.json(queryUrl, function(data) {
   var earthquakes = data.features
 
   console.log(earthquakes)
-  var geojson;
+  
   // loop through the data to create markers and popup
   earthquakes.forEach(function(result){
-    console.log(result.properties)
-    geojson = L.geoJSON(result,{
+    //console.log(result.properties)
+    L.geoJSON(result,{
       pointToLayer: createCircleMarker
       // add popups to the circle markers to display data
     }).bindPopup("Date: " + new Date(result.properties.time) + "<br>Place: " + result.properties.place + "<br>Magnitude: " + result.properties.mag).addTo(myMap)
-  })
+  });
 
   //create legennds and add to the map
   var legend = L.control({position: "bottomright" });
