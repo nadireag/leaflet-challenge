@@ -75,7 +75,7 @@
    createMap(earthquakes);
  }
  
- //create legennds and add to the map
+ //create legends and add to the map
  var legend = L.control({position: "bottomright" });
  legend.onAdd = function(){
    // create div for the legend
@@ -92,12 +92,6 @@
    return div;
  };
  
-//  // create the variable url for plates data
-//  var url = "https://raw.githubusercontent.com/fraxen/tectonicplates/master/original/PB2002_steps.csv"
-//  // read the plates data
-//  d3.csv("url", function(plates){
-//    console.log(plates)
-//  })
 
 
  // create the function that cretes the map and adds the layers to the map
@@ -130,7 +124,6 @@
     accessToken: API_KEY
   })
 
- 
    // Define a baseMaps object to hold our base layers
    var baseMaps = {
      "Light Map": light,
@@ -142,7 +135,7 @@
    // Create overlay object to hold our overlay layer
    var overlayMaps = {
      Earthquakes: earthquakes,
-     //"Fault Lines" : tectPlates
+     //"Fault Lines" : tectlines
    };
  
    // Create our map, giving it the streetmap and earthquakes layers to display on load
@@ -151,7 +144,7 @@
        37.09, -95.71
      ],
      zoom: 5,
-     layers: [satellite,earthquakes]
+     layers: [satellite, earthquakes]
    });
  
    // Create a layer control
@@ -162,5 +155,6 @@
    }).addTo(myMap);
    // add the lagend to the map
    legend.addTo(myMap);
+
  }
  
