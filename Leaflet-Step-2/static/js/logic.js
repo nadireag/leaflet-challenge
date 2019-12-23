@@ -2,7 +2,7 @@
 
  //get the url for the earthquake data
  var queryUrl = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2019-01-01&endtime=" +
- "2019-01-02&maxlongitude=20.52148437&minlongitude=-150.83789062&maxlatitude=80.74894534&minlatitude=-45.7433195";
+ "2019-01-02&maxlongitude=150.52148437&minlongitude=-150.83789062&maxlatitude=80.74894534&minlatitude=-70.7433195";
  
  // Perform a GET request to the query URL
  d3.json(queryUrl, function(data) {
@@ -135,7 +135,6 @@
    // Create overlay object to hold our overlay layer
    var overlayMaps = {
      Earthquakes: earthquakes,
-     //"Fault Lines" : tectlines
    };
  
    // Create our map, giving it the streetmap and earthquakes layers to display on load

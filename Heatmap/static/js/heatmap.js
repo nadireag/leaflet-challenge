@@ -1,12 +1,12 @@
 // create the base map
 var myMap = L.map("map", {
     center: [37.09, -95.71],
-    zoom: 3
+    zoom: 4
   });
 
 // get the queryurl 
 var queryUrl = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2019-09-01&endtime=" +
- "2019-09-30&maxlongitude=175.52148437&minlongitude=-170.83789062&maxlatitude=80.74894534&minlatitude=-85.7433195";
+ "2019-09-30&maxlongitude=170.52148437&minlongitude=-150.83789062&maxlatitude=85.74894534&minlatitude=-85.7433195";
  
 // get the light tile layer
 var light = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
@@ -41,8 +41,10 @@ d3.json(queryUrl, function(data){
   // create the heat layer and add it to the map
   L.heatLayer(heatArray, {
     radius :25,
-    blur: 30, 
-    gradient : {0.1: 'blue', 0.6: 'yellow', 0.4: 'red' }
+    blur: 35, 
+    //gradient : {0.1: 'blue', 0.6: 'yellow', 0.4: 'red' }
+    max: 0.001
+
     
   }).addTo(myMap)
 

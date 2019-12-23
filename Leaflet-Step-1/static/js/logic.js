@@ -15,11 +15,11 @@ accessToken: API_KEY
 
 // get the url for the earthquake data
 var queryUrl = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2019-01-01&endtime=" +
-"2019-01-02&maxlongitude=20.52148437&minlongitude=-150.83789062&maxlatitude=80.74894534&minlatitude=-45.16517337";
+"2019-01-02&maxlongitude=170.52148437&minlongitude=-150.83789062&maxlatitude=80.74894534&minlatitude=-85.16517337";
 
 // create a function that changes marker size depending on the magnitute values
 function markerSize(mag){
-    return mag * 7
+    return mag * 5
 }
 
 // create a function that gets colors for circle markers
