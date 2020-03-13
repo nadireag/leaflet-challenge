@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Earthquake Maps</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+    <!-- create a cotainer -->
+    <div class="container">
+        <!-- create the first row for the header -->
+        <div class="row">
+            <div class="col-md-12 jumbotron text-center">
+                <h1>Earthquake Maps</h1>
+            </div>
+        </div>
+        <!-- create second row for the info -->
+        <div class="row">    
+            <div class="col-md-4">
+                <h3>About</h3>
+                <p>The USGS provides earthquake data in a number of different formats, updated every 5 minutes. Using the data available on <a href="http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php">www.earthquake.usgs.gov</a> created maps using Leaflet that plots all of the earthquakes from the data set based on their longitude and latitude.
+                
+                <p>The data markers reflect the magnitude of the earthquake in their size and color. Earthquakes with higher magnitudes should appear larger and darker in color.</p>
+
+                <p>Popups provide additional information about the earthquake when a marker is clicked and the legend will provides context for the data.</p>
+            </div>
+            <div class="col-md-8">
+                <a href="Leaflet-Step-2/index.html">
+                    <img  src="images/layermap.png" width="100%">     
+                </a> 
+                <p class="info">Layer map has different layer options such as outdoors, satellite, grayscale and light map</p> 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="images/map.png"  width="100%" > 
+            </div>
+            <div class="col-md-6">
+                <img src="images/map2.png"  width="100%" > 
+            </div>
+            
+        </div>
+    
+    <hr>
+        <!-- third row for the maps -->
+        <div class="row">
+            <div class="col-md-6">
+                <a href="Clusters/index.html"><img  src="images/cluustermap.png" width="90%"></a>
+                <p class="info">Cluster map shows the number of earthquakes in each cluster and as we zoom it adjusts the clusters based on the currret view. </p>     
+            </div>
+            <div class="col-md-6">
+                <a href="Heatmap/index.html"><img src="images/heatmap.png" width="100%"></a>
+                <p>Heatmap highlights areas of earthquake activity.</p>   
+                
+            </div>    
+        </div>
+  
+    </div>
+</body>
+</html>
