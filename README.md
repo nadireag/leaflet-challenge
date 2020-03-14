@@ -23,4 +23,5 @@
 
 * Create a Clusters map
 * Create a Heatmap
+![image](images/map3.png)
 
